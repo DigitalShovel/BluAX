@@ -33,28 +33,31 @@ export class ThemeService {
       '--highlight-bg': '#1e75df',
       '--highlight-text-color': '#ffffff',
       '--focus-ring': '0 0 0 0.2rem #B8D8FF',
-      // PrimeNG Slider
+      // Slider
       '--slider-bg': '#dee2e6',
       '--slider-range-bg': '#1e75df',
       '--slider-handle-bg': '#1e75df',
       // Progress Bar
       '--progressbar-bg': '#dee2e6',
       '--progressbar-value-bg': '#1e75df',
-      // PrimeNG Checkbox
+      // Checkbox
       '--checkbox-border': '#1e75df',
       '--checkbox-bg': '#1e75df',
       '--checkbox-hover-bg': '#3185EC',
-      // PrimeNG Button
+      // Button
       '--button-bg': '#1e75df',
       '--button-hover-bg': '#3185EC',
       '--button-focus-shadow': '0 0 0 2px #ffffff, 0 0 0 4px #1e75df',
+      // Button Inverted
+      '--button-inverted-bg': '#3185EC',
+      '--button-inverted-hover-bg': '#5CA1F4',
       // Toggle button
       '--togglebutton-bg': '#1e75df',
       '--togglebutton-border': '1px solid #1e75df',
       '--togglebutton-hover-bg': '#3185EC',
       '--togglebutton-hover-border': '1px solid #3185EC',
       '--togglebutton-text-color': '#ffffff',
-    }
+    },
   };
 
   constructor(private http: HttpClient) {}
