@@ -7,7 +7,7 @@
     user-select: none;
     top: 0;
     left: 0;
-    transition: transform $transitionDuration, left $transitionDuration;
+    transition: transform $transitionDuration, width $transitionDuration;
     background-color: var(--surface-sidebar);
     border-radius: 0;
     padding: 1rem;

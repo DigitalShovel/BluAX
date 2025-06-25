@@ -38,17 +38,16 @@
 
             &.layout-static-inactive {
                 .layout-topbar {
-                    width: 100vw;
-                    left: 0;
+                    width: calc(100vw - 60px);
+                    left: 60px;
                 }
 
                 .layout-sidebar {
-                    transform: translateX(-100%);
-                    left: 0;
+                    width: 60px;
                 }
 
                 .layout-main-container {
-                    margin-left: 0;
+                    margin-left: 60px;
                     padding-left: 2rem;
                 }
             }
