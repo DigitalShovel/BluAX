@@ -37,6 +37,11 @@
             }
 
             &.layout-static-inactive {
+                .layout-topbar {
+                    width: 100vw;
+                    left: 0;
+                }
+
                 .layout-sidebar {
                     transform: translateX(-100%);
                     left: 0;
