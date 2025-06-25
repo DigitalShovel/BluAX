@@ -13,47 +13,47 @@ export interface ThemeSettings {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
   private themeSettings$ = this.http.get<ThemeSettings>('/api/theme').pipe(
     catchError(() => of(this.mockSettings)),
-    shareReplay({ 
-      bufferSize: 1, 
-      refCount: true, 
-      windowTime: 1000 // 1 second cache
+    shareReplay({
+      bufferSize: 1,
+      refCount: true,
+      windowTime: 1000, // 1 second cache
     })
   );
 
   private readonly mockSettings: ThemeSettings = {
-    colorScheme: 'dark',
+    colorScheme: 'light',
     accentColors: {
-      '--primary-color': '#F80421',
+      '--primary-color': '#1e75df',
       '--primary-color-text': '#ffffff',
-      '--highlight-bg': '#F80421',
+      '--highlight-bg': '#1e75df',
       '--highlight-text-color': '#ffffff',
-      '--focus-ring': '0 0 0 0.2rem rgba(255,64,50,0.2)',
+      '--focus-ring': '0 0 0 0.2rem #B8D8FF',
       // PrimeNG Slider
       '--slider-bg': '#dee2e6',
-      '--slider-range-bg': '#F80421',
-      '--slider-handle-bg': '#F80421',
+      '--slider-range-bg': '#1e75df',
+      '--slider-handle-bg': '#1e75df',
       // Progress Bar
       '--progressbar-bg': '#dee2e6',
-      '--progressbar-value-bg': '#F80421',
+      '--progressbar-value-bg': '#1e75df',
       // PrimeNG Checkbox
-      '--checkbox-border': '#F80421',
-      '--checkbox-bg': '#F80421',
-      '--checkbox-hover-bg': '#e63c2e',
+      '--checkbox-border': '#1e75df',
+      '--checkbox-bg': '#1e75df',
+      '--checkbox-hover-bg': '#3185EC',
       // PrimeNG Button
-      '--button-bg': '#F80421',
-      '--button-hover-bg': '#e63c2e',
-      '--button-focus-shadow': '0 0 0 2px #ffffff, 0 0 0 4px #F80421',
+      '--button-bg': '#1e75df',
+      '--button-hover-bg': '#3185EC',
+      '--button-focus-shadow': '0 0 0 2px #ffffff, 0 0 0 4px #1e75df',
       // Toggle button
-      '--togglebutton-bg': '#F80421',
-      '--togglebutton-border': '1px solid #F80421',
-      '--togglebutton-hover-bg': '#e63c2e',
-      '--togglebutton-hover-border': '1px solid #e63c2e',
-      '--togglebutton-text-color': '#ffffff'
+      '--togglebutton-bg': '#1e75df',
+      '--togglebutton-border': '1px solid #1e75df',
+      '--togglebutton-hover-bg': '#3185EC',
+      '--togglebutton-hover-border': '1px solid #3185EC',
+      '--togglebutton-text-color': '#ffffff',
     }
   };
 
