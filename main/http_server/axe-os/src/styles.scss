@@ -77,6 +77,23 @@ p-chart > div {
     }
 }
 
+.p-button-label {
+    font-size: 1rem;
+}
+
+.p-button-icon {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.p-button-mobile-only {
+    display: none;
+
+    @media (max-width: 992px) {
+        display: flex;
+    }
+}
+
 .p-button-full-width {
     width: 100%;
 }

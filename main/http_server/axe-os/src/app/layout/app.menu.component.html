@@ -7,7 +7,7 @@
     <ul class="button-group">
         <button *ngIf="!isAPMode" #menubutton class="p-button p-button-inverted p-button-full-width"
             (click)="layoutService.onMenuToggle()">
-            <i class="pi pi-bars"></i><span class="p-button-label">Collapse Sidebar</span>
+            <img src="../../assets/images/icons/icon_sidebar-collapse_16x16.svg" alt="Sidebar Collapse Icon"><span class="p-button-label">Collapse Sidebar</span>
         </button>
 
         <p-button (click)="restart()" id="restart" label="Restart" severity="primary"
