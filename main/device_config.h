@@ -37,6 +37,7 @@ typedef enum
     SUPRA,
     GAMMA,
     GAMMA_TURBO,
+    BLUAX
 } Family;
 
 typedef struct {
@@ -96,6 +97,7 @@ static const FamilyConfig FAMILY_HEX         = { .id = HEX,         .name = "Hex
 static const FamilyConfig FAMILY_SUPRA       = { .id = SUPRA,       .name = "Supra",      .asic = ASIC_BM1368, .asic_count = 1, .max_power = 40, .power_offset = 5,  .nominal_voltage = 5,  .swarm_color = "blue",   };
 static const FamilyConfig FAMILY_GAMMA       = { .id = GAMMA,       .name = "Gamma",      .asic = ASIC_BM1370, .asic_count = 1, .max_power = 40, .power_offset = 5,  .nominal_voltage = 5,  .swarm_color = "green",  };
 static const FamilyConfig FAMILY_GAMMA_TURBO = { .id = GAMMA_TURBO, .name = "GammaTurbo", .asic = ASIC_BM1370, .asic_count = 2, .max_power = 60, .power_offset = 10, .nominal_voltage = 12, .swarm_color = "cyan",   };
+static const FamilyConfig FAMILY_BLUAX       = { .id = BLUAX,       .name = "BluAx",      .asic = ASIC_BM1370, .asic_count = 1, .max_power = 40, .power_offset = 5,  .nominal_voltage = 15, .swarm_color = "blue",   };
 
 static const FamilyConfig default_families[] = {
     FAMILY_MAX,
@@ -104,6 +106,7 @@ static const FamilyConfig default_families[] = {
     FAMILY_SUPRA,
     FAMILY_GAMMA,
     FAMILY_GAMMA_TURBO,
+    FAMILY_BLUAX
 };
 
 static const DeviceConfig default_configs[] = {
@@ -124,6 +127,7 @@ static const DeviceConfig default_configs[] = {
     { .board_version = "601",  .family = FAMILY_GAMMA,       .EMC2101 = true, .emc_ideality_factor = 0x24, .emc_beta_compensation = 0x00,                         .TPS546 = true,                                                           .power_consumption_target = 19, },
     { .board_version = "602",  .family = FAMILY_GAMMA,       .EMC2101 = true, .emc_ideality_factor = 0x24, .emc_beta_compensation = 0x00,                         .TPS546 = true,                                                           .power_consumption_target = 22, },
     { .board_version = "800",  .family = FAMILY_GAMMA_TURBO, .EMC2103 = true,                                                             .emc_temp_offset = -10, .TPS546 = true,                                                           .power_consumption_target = 12, },
+    { .board_version = "320",  .family = FAMILY_BLUAX,       .EMC2101 = true, .emc_ideality_factor = 0x24, .emc_beta_compensation = 0x00,                         .TPS546 = true,                                                           .power_consumption_target = 19, },
 };
 
 esp_err_t device_config_init(void * pvParameters);

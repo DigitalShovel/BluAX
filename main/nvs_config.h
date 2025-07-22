@@ -21,6 +21,7 @@
 #define NVS_CONFIG_ASIC_MODEL "asicmodel"
 #define NVS_CONFIG_DEVICE_MODEL "devicemodel"
 #define NVS_CONFIG_BOARD_VERSION "boardversion"
+#define NVS_CONFIG_FIRMWARE_VERSION "firmwareversion"
 #define NVS_CONFIG_DISPLAY "display"
 #define NVS_CONFIG_ROTATION "rotation"
 #define NVS_CONFIG_INVERT_SCREEN "invertscreen"

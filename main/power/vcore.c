@@ -46,6 +46,22 @@ static TPS546_CONFIG TPS546_CONFIG_GAMMA = {
     .TPS546_INIT_IOUT_OC_FAULT_LIMIT = 30.00 /* A */
 };
 
+static TPS546_CONFIG TPS546_CONFIG_BLUAX = {
+    /* vin voltage */
+    .TPS546_INIT_VIN_ON = 4.8,
+    .TPS546_INIT_VIN_OFF = 4.5,
+    .TPS546_INIT_VIN_UV_WARN_LIMIT = 0, //Set to 0 to ignore. TI Bug in this register
+    .TPS546_INIT_VIN_OV_FAULT_LIMIT = 16.5,
+    /* vout voltage */
+    .TPS546_INIT_SCALE_LOOP = 0.25,
+    .TPS546_INIT_VOUT_MIN = 0.95,
+    .TPS546_INIT_VOUT_MAX = 2,
+    .TPS546_INIT_VOUT_COMMAND = 1.2,
+    /* iout current */
+    .TPS546_INIT_IOUT_OC_WARN_LIMIT = 55.00, /* A */
+    .TPS546_INIT_IOUT_OC_FAULT_LIMIT = 75.00 /* A */
+};
+
 esp_err_t VCORE_init(GlobalState * GLOBAL_STATE) {
     if (GLOBAL_STATE->DEVICE_CONFIG.DS4432U) {
         ESP_RETURN_ON_ERROR(DS4432U_init(), TAG, "DS4432 init failed!");
@@ -56,7 +72,7 @@ esp_err_t VCORE_init(GlobalState * GLOBAL_STATE) {
     if (GLOBAL_STATE->DEVICE_CONFIG.TPS546) {
         switch (GLOBAL_STATE->DEVICE_CONFIG.family.asic_count) {
             case 1:
-                ESP_RETURN_ON_ERROR(TPS546_init(TPS546_CONFIG_GAMMA), TAG, "TPS546 init failed!");
+                ESP_RETURN_ON_ERROR(TPS546_init(TPS546_CONFIG_BLUAX), TAG, "TPS546 init failed!");
                 break;
             case 2:
                 ESP_RETURN_ON_ERROR(TPS546_init(TPS546_CONFIG_GAMMATURBO), TAG, "TPS546 init failed!");
