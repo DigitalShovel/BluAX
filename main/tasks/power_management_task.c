@@ -72,6 +72,10 @@ void POWER_MANAGEMENT_task(void * pvParameters)
     uint16_t last_asic_frequency = power_management->frequency_value;
     
     while (1) {
+        if (nvs_config_get_u16(NVS_CONFIG_OVERHEAT_MODE, 1) == 1) {
+            nvs_config_set_u16(NVS_CONFIG_ASIC_FREQ, 490);
+            nvs_config_set_u16(NVS_CONFIG_OVERHEAT_MODE, 0);
+        }
 
         // Refresh PID setpoint from NVS in case it was changed via API
         pid_setPoint = (double)nvs_config_get_u16(NVS_CONFIG_TEMP_TARGET, pid_setPoint);
