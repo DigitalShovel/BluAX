@@ -200,7 +200,7 @@ static lv_obj_t * create_scr_bitaxe_logo(const char * name, const char * board_v
 
     lv_obj_t *img = lv_img_create(scr);
     lv_img_set_src(img, &bitaxe_logo);
-    lv_obj_align(img, LV_ALIGN_CENTER, 0, 1);
+    lv_obj_align(img, LV_ALIGN_LEFT_MID, 12, -2);
 
     lv_obj_t *label1 = lv_label_create(scr);
     lv_label_set_text(label1, name);
