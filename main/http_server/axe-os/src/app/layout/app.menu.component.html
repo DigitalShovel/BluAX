@@ -4,9 +4,15 @@
         <li *ngIf="item.separator" class="menu-separator"></li>
     </ng-container>
 
+    <ul class="button-group">
+        <button *ngIf="!isAPMode" #menubutton class="p-button p-button-inverted p-button-full-width"
+            (click)="layoutService.onMenuToggle()">
+            <img src="../../assets/images/icons/icon_sidebar-collapse_16x16.svg" alt="Sidebar Collapse Icon"><span class="p-button-label">Collapse Sidebar</span>
+        </button>
 
-    <li id="restart-container">
-        <p-button (click)="restart()" id="restart" label="Restart" severity="primary"></p-button>
-    </li>
+        <p-button (click)="restart()" id="restart" label="Restart" severity="primary"
+            styleClass="p-button-inverted p-button-full-width" class="p-button-full-width">
+        </p-button>
+    </ul>
 
 </ul>

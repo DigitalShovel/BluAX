@@ -1,5 +1,5 @@
 $colors: (
-    "blue": #2196f3,
+    "blue": #1e75df,
     "green": #4caf50,
     "yellow": #fbc02d,
     "cyan": #00bcd4,
@@ -14,8 +14,8 @@ $colors: (
 ) !default;
 
 //shades
-$shade000: rgba(255, 255, 255, 0.87) !default; //text color
-$shade100: rgba(255, 255, 255, 0.6) !default; //text secondary color
+$shade000: #FFFFFF !default; //text color
+$shade100: #EBF4FF !default; //text secondary color
 $shade500: #3e526d !default;
 $shade600: #304562 !default; //input bg, border, divider
 $shade700: #283951 !default; //unused
@@ -31,7 +31,7 @@ $fontSize: 1rem !default;
 $fontWeight: normal !default;
 $textColor: $shade000 !default;
 $textSecondaryColor: $shade100 !default;
-$borderRadius: 3px !default;
+$borderRadius: 8px !default;
 $transitionDuration: 0.2s !default;
 $formElementTransition: background-color $transitionDuration,
     color $transitionDuration, border-color $transitionDuration,
@@ -140,6 +140,18 @@ $buttonActiveBorderColor: $primaryDarkerColor !default;
 $raisedButtonShadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12) !default;
 $roundedButtonBorderRadius: 2rem !default;
+
+$invertedButtonBg: $shade800 !default;
+$invertedButtonTextColor: $shade000 !default;
+$invertedButtonBorder: 1px solid $shade600 !default;
+
+$invertedButtonHoverBg: $shade700 !default;
+$invertedButtonTextHoverColor: $shade000 !default;
+$invertedButtonHoverBorderColor: $shade600 !default;
+
+$invertedButtonActiveBg: $shade600 !default;
+$invertedButtonTextActiveColor: $shade000 !default;
+$invertedButtonActiveBorderColor: $shade600 !default;
 
 $textButtonHoverBgOpacity: 0.04 !default;
 $textButtonActiveBgOpacity: 0.16 !default;
@@ -915,6 +927,7 @@ $imagePreviewActionIconBorderRadius: 50% !default;
     --surface-f: #{$shade800};
     --text-color: #{$shade000};
     --text-color-secondary: #{$shade100};
+    --text-color-sidebar: #{$shade100};
     --primary-color: #{$primaryColor};
     --primary-color-text: #{$primaryTextColor};
     --surface-0: #070D17;
@@ -927,7 +940,7 @@ $imagePreviewActionIconBorderRadius: 50% !default;
     --surface-600: #b9bcc1;
     --surface-700: #d1d3d5;
     --surface-800: #e8e9ea;
-    --surface-900: #ffffff;
+    --surface-900: #001733;
     --gray-50: #e8e9ea;
     --gray-100: #d1d3d5;
     --gray-200: #b9bcc1;
@@ -945,8 +958,9 @@ $imagePreviewActionIconBorderRadius: 50% !default;
     --surface-section: #070D17;
     --surface-card: #070D17;
     --surface-overlay: #070D17;
+    --surface-sidebar: #{$primaryColor};
     --surface-border: #192730;
-    --surface-hover: rgba(255, 255, 255, 0.03);
+    --surface-hover: hsla(255, 100%, 100%, 0.1);
     --maskbg: #{$maskBg};
     --highlight-bg: #{$highlightBg};
     --highlight-text-color: #{$highlightTextColor};

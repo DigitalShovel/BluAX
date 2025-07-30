@@ -33,17 +33,21 @@
 
         &.layout-static {
             .layout-main-container {
-                margin-left: 250px;
+                margin-left: 200px;
             }
 
             &.layout-static-inactive {
+                .layout-topbar {
+                    width: calc(100vw - 60px);
+                    left: 60px;
+                }
+
                 .layout-sidebar {
-                    transform: translateX(-100%);
-                    left: 0;
+                    width: 60px;
                 }
 
                 .layout-main-container {
-                    margin-left: 0;
+                    margin-left: 60px;
                     padding-left: 2rem;
                 }
             }
@@ -69,7 +73,7 @@
             transform: translateX(-100%);
             left: 0;
             top: 0;
-            height: 100vh;
+            height: 100dvh;
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
         }

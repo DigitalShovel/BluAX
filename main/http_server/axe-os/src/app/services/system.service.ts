@@ -38,7 +38,7 @@ export class SystemService {
         freeHeap: 200504,
         coreVoltage: 1200,
         coreVoltageActual: 1200,
-        hostname: "Bitaxe",
+        hostname: "BluAX",
         macAddr: "2C:54:91:88:C9:E3",
         ssid: "default",
         wifiPass: "password",
