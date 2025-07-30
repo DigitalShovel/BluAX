@@ -1,8 +1,7 @@
 .layout-sidebar {
-    position: fixed;
     width: 200px;
-    height: 100vh;
-    z-index: 999;
+    height: 100dvh;
+    flex-shrink: 0;
     overflow-y: auto;
     user-select: none;
     top: 0;

@@ -24,5 +24,16 @@ a {
 }
 
 .layout-wrapper {
+    display: flex;
     min-height: 100vh;
+}
+
+
+// NEW TESTING STYLING
+
+.layout-root {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }

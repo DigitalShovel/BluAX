@@ -1,14 +1,27 @@
-<div class="layout-wrapper" [ngClass]="containerClass">
-    <app-topbar [isAPMode]="isAPMode"></app-topbar>
+<div class="layout-root" [ngClass]="containerClass">
     <div class="layout-sidebar" *ngIf="!isAPMode">
         <app-sidebar></app-sidebar>
     </div>
-    <div class="layout-main-container">
+    <div class="layout-content">
+        <div class="layout-topbar">
+            <a class="" routerLink="">
+                <img src="/assets/images/bluAX_by-ds_horizontal_gray+blue.svg" width="200" height="54" class="block"
+                    alt="BluAX by Digital Shovel" />
+            </a>
+
+            <div class="layout-topbar-menu">
+                <button *ngIf="!isAPMode" #menubutton
+                    class="p-button p-button-inverted p-button-full-width p-button-icon p-button-mobile-only"
+                    (click)="layoutService.onMenuToggle()">
+                    <img src="../../assets/images/icons/icon_sidebar-expand_16x16.svg" alt="Sidebar Expand Icon"><span
+                        class="p-button-label">Expand Sidebar</span>
+                </button>
+            </div>
+        </div>
         <div class="layout-main">
             <router-outlet></router-outlet>
         </div>
         <app-footer></app-footer>
     </div>
-
     <div class="layout-mask"></div>
 </div>
