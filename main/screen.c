@@ -19,7 +19,7 @@ typedef enum {
     SCR_CONFIGURE,
     SCR_FIRMWARE_UPDATE,
     SCR_CONNECTION,
-    SCR_BITAXE_LOGO,
+    SCR_BLUAX_LOGO,
     SCR_OSMU_LOGO,
     SCR_URLS,
     SCR_STATS,
@@ -32,7 +32,7 @@ typedef enum {
 #define SCR_CAROUSEL_START SCR_URLS
 #define SCR_CAROUSEL_END SCR_WIFI_RSSI
 
-extern const lv_img_dsc_t bitaxe_logo;
+extern const lv_img_dsc_t bluax_logo;
 extern const lv_img_dsc_t osmu_logo;
 
 static lv_obj_t * screens[MAX_SCREENS];
@@ -96,7 +96,7 @@ static lv_obj_t * create_scr_self_test() {
     lv_obj_t * scr = create_flex_screen(4);
 
     lv_obj_t *label1 = lv_label_create(scr);
-    lv_label_set_text(label1, "BITAXE SELF TEST");
+    lv_label_set_text(label1, "BLUAX SELF TEST");
 
     self_test_message_label = lv_label_create(scr);
     self_test_result_label = lv_label_create(scr);
@@ -146,7 +146,7 @@ static lv_obj_t * create_scr_configure(SystemModule * module) {
     lv_obj_set_width(label1, LV_HOR_RES);
     lv_obj_set_style_anim_duration(label1, 15000, LV_PART_MAIN);
     lv_label_set_long_mode(label1, LV_LABEL_LONG_SCROLL_CIRCULAR);
-    lv_label_set_text(label1, "Welcome to your new Bitaxe! Connect to the configuration Wi-Fi and connect the Bitaxe to your network.");
+    lv_label_set_text(label1, "Welcome to your new BluAx! Connect to the configuration Wi-Fi and connect the BluAx to your network.");
 
     // add a bit of padding, it looks nicer this way
     lv_obj_set_style_pad_bottom(label1, 4, LV_PART_MAIN);
@@ -195,11 +195,11 @@ static lv_obj_t * create_scr_connection(SystemModule * module) {
     return scr;
 }
 
-static lv_obj_t * create_scr_bitaxe_logo(const char * name, const char * board_version) {
+static lv_obj_t * create_scr_bluax_logo(const char * name, const char * board_version) {
     lv_obj_t * scr = lv_obj_create(NULL);
 
     lv_obj_t *img = lv_img_create(scr);
-    lv_img_set_src(img, &bitaxe_logo);
+    lv_img_set_src(img, &bluax_logo);
     lv_obj_align(img, LV_ALIGN_LEFT_MID, 12, -2);
 
     lv_obj_t *label1 = lv_label_create(scr);
@@ -330,7 +330,7 @@ static void screen_update_cb(lv_timer_t * timer)
 
             if (self_test->result) {
                 lv_label_set_text(self_test_result_label, "TESTS PASS!");
-                lv_label_set_text(self_test_finished_label, "Press RESET button to start Bitaxe.");
+                lv_label_set_text(self_test_finished_label, "Press RESET button to start BluAx.");
             } else {
                 lv_label_set_text(self_test_result_label, "TESTS FAIL!");
                 lv_label_set_text(self_test_finished_label, "Hold BOOT button for 2 seconds to cancel self test, or press RESET to run again.");
@@ -537,7 +537,7 @@ esp_err_t screen_start(void * pvParameters)
         screens[SCR_CONFIGURE] = create_scr_configure(module);
         screens[SCR_FIRMWARE_UPDATE] = create_scr_ota(module);
         screens[SCR_CONNECTION] = create_scr_connection(module);
-        screens[SCR_BITAXE_LOGO] = create_scr_bitaxe_logo(GLOBAL_STATE->DEVICE_CONFIG.family.name, GLOBAL_STATE->DEVICE_CONFIG.board_version);
+        screens[SCR_BLUAX_LOGO] = create_scr_bluax_logo(GLOBAL_STATE->DEVICE_CONFIG.family.name, GLOBAL_STATE->DEVICE_CONFIG.board_version);
         screens[SCR_OSMU_LOGO] = create_scr_osmu_logo();
         screens[SCR_URLS] = create_scr_urls(module);
         screens[SCR_STATS] = create_scr_stats();

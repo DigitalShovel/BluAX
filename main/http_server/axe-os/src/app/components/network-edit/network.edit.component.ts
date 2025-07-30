@@ -138,7 +138,7 @@ export class NetworkEditComponent implements OnInit {
       .pipe(this.loadingService.lockUIUntilComplete())
       .subscribe({
         next: () => {
-          this.toastr.success('Success!', 'Bitaxe restarted');
+          this.toastr.success('Success!', 'BluAx restarted');
         },
         error: (err: HttpErrorResponse) => {
           this.toastr.error('Error', `Could not restart. ${err.message}`);

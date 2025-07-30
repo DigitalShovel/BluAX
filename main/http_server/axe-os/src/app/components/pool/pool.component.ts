@@ -97,7 +97,7 @@ export class PoolComponent implements OnInit {
       .pipe(this.loadingService.lockUIUntilComplete())
       .subscribe({
         next: () => {
-          const successMessage = this.uri ? `Bitaxe at ${this.uri} restarted` : 'Bitaxe restarted';
+          const successMessage = this.uri ? `BluAx at ${this.uri} restarted` : 'BluAx restarted';
           this.toastr.success(successMessage, 'Success');
         },
         error: (err: HttpErrorResponse) => {
