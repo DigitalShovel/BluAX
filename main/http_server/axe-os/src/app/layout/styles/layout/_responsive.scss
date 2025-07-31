@@ -101,3 +101,26 @@
 //         }
 //     }
 // }
+
+// Sorry Nick, I know you commented this file. Feel free to remove these.
+@media (min-width: 992px) {
+    .layout-root {
+        &.layout-static {
+            &.layout-static-inactive {
+                .layout-sidebar {
+                    transform: translateX(-100%);
+                    left: 0;
+                }
+
+                .layout-content {
+                    margin-left: -200px;
+                    transition: margin-left $transitionDuration;
+                }
+                
+                .p-button-mobile-only {
+                    display: flex
+                }
+            }
+        }
+    }
+}
