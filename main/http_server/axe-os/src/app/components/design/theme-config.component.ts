@@ -55,7 +55,7 @@ interface ThemeOption {
 })
 export class ThemeConfigComponent implements OnInit {
   selectedScheme: string;
-  currentColor: string = 'Blue';
+  currentColor: string = '#1e75df';
   themes: ThemeOption[] = [
     {
       name: 'Orange',
