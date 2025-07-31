@@ -42,6 +42,12 @@ export class LayoutService {
     '--text-color': 'rgba(255, 255, 255, 0.87)',
     '--text-color-secondary': 'rgba(255, 255, 255, 0.6)',
     '--maskbg': 'rgba(0,0,0,0.4)',
+    '--ansi-green': "#00ff00",
+    '--ansi-yellow': "#ffff00",
+    '--ansi-blue': "#0000ff",
+    '--ansi-magenta': "#ff00ff",
+    '--ansi-cyan': "#00ffff",
+    '--ansi-white ': "ffffff;",
   };
 
   private lightTheme = {
@@ -63,6 +69,12 @@ export class LayoutService {
     '--text-color-sidebar-active': '#FFFFFF', // Sidebar active text color
     '--text-bg-sidebar-active': 'var(--blue-700)', // Sidebar active bg color
     '--maskbg': 'rgba(0,0,0,0.2)',
+    '--ansi-green': "#008400",
+    '--ansi-yellow': "#ecad00",
+    '--ansi-blue': "#0000ff",
+    '--ansi-magenta': "#ff00ff",
+    '--ansi-cyan': "#00ffff",
+    '--ansi-white ': "ffffff;",
   };
 
   _config: AppConfig = {

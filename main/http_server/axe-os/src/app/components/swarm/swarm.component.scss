@@ -1,11 +1,11 @@
 table {
     width: 100%;
-    border: 1px solid #304562;
+    border: 1px solid var(--surface-border);
 }
 
 th {
     text-align: left;
-    background-color: #1f2d40;
+    background-color: var(--surface-c);
     padding: 0;
 
     > div {
@@ -28,7 +28,7 @@ th {
 
 th,
 td {
-    border-bottom: 1px solid #304562;
+    border-bottom: 1px solid var(--surface-border);
 }
 
 td {

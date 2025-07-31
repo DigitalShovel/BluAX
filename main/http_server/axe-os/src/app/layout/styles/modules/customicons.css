@@ -1,0 +1,32 @@
+.ci {
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+}
+
+.ci-sidebar-collapse::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('/assets/images/icons/icon_sidebar-collapse_16x16.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: brightness(0) saturate(100%);
+    color: var(--button-inverted-text-color);
+}
+
+.ci-sidebar-expand::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('/assets/images/icons/icon_sidebar-expand_16x16.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: brightness(0) saturate(100%);
+    color: var(--button-inverted-text-color);
+}
