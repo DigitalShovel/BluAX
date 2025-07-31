@@ -161,10 +161,10 @@
                         </p-progressBar>
 
                         <!-- Conditional marker based on nominal voltage-->
-                        <div class="absolute bg-white h-full top-0"
+                        <div class="absolute h-full top-0"
                             [style.left]="(info.nominalVoltage / (info.nominalVoltage + .5)) * 100 + '%'"
-                            style="width: 3px;">
-                            <small class="absolute text-white white-space-nowrap text-xs"
+                            style="width: 3px; background-color: var(--text-color);">
+                            <small class="absolute white-space-nowrap text-xs"
                                 style="bottom: -1rem; transform: translateX(-50%)">
                                 {{info.nominalVoltage}} V
                             </small>
