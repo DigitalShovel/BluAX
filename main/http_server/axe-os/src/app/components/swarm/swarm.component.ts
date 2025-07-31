@@ -189,7 +189,7 @@ export class SwarmComponent implements OnInit, OnDestroy {
       })
     ).subscribe(res => {
       if (res !== null) {
-        this.toastr.success(`Bitaxe at ${axe.IP} restarted`, 'Success');
+        this.toastr.success(`BluAx at ${axe.IP} restarted`, 'Success');
       }
     });
   }
