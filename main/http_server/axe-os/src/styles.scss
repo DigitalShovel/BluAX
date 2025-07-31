@@ -67,6 +67,26 @@ p-chart > div {
     }
 }
 
+.p-button.p-button-danger {
+      background: $dangerButtonBg;
+      border: 1px solid $dangerButtonBg;
+
+      &:enabled:hover {
+          background: $dangerButtonHoverBg;
+          border-color: $dangerButtonHoverBg;
+      }
+  }
+
+.p-button.p-button-secondary {
+      background: $secondaryButtonBg;
+      border: 1px solid $secondaryButtonBg;
+
+      &:enabled:hover {
+          background: $secondaryButtonHoverBg;
+          border-color: $secondaryButtonHoverBg;
+      }
+  }
+
 .p-button-inverted {
     background: var(--button-inverted-bg);
     border: 1px solid var(--button-inverted-bg);
