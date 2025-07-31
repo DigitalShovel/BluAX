@@ -72,14 +72,14 @@ $actionIconBorderRadius: 50% !default;
 //input field (e.g. inputtext, spinner, inputmask)
 $inputPadding: 0.5rem 0.5rem !default;
 $inputTextFontSize: 1rem !default;
-$inputBg: $shade900 !default;
-$inputTextColor: $shade000 !default;
-$inputIconColor: $shade100 !default;
-$inputBorder: 1px solid $shade600 !default;
+$inputBg: $shade000 !default;
+$inputTextColor: var(--text-color) !default;
+$inputIconColor: var(--text-color-secondary) !default;
+$inputBorder: 1px solid var(--surface-border) !default;
 $inputHoverBorderColor: $primaryColor !default;
 $inputFocusBorderColor: $primaryColor !default;
 $inputErrorBorderColor: $errorColor !default;
-$inputPlaceholderTextColor: $shade100 !default;
+$inputPlaceholderTextColor: var(--text-color-secondary) !default;
 $inputFilledBg: $shade600 !default;
 $inputFilledHoverBg: $inputFilledBg !default;
 $inputFilledFocusBg: $inputFilledBg !default;
@@ -96,11 +96,11 @@ $inputListBorder: $inputBorder !default;
 $inputListPadding: 0.5rem 0 !default;
 $inputListItemPadding: 0.5rem 1rem !default;
 $inputListItemBg: transparent !default;
-$inputListItemTextColor: $shade000 !default;
+$inputListItemTextColor: var(--text-color) !default;
 $inputListItemHoverBg: $hoverBg !default;
 $inputListItemTextHoverColor: $shade000 !default;
-$inputListItemFocusBg: rgba(255, 255, 255, 0.09) !default;
-$inputListItemTextFocusColor: $shade000 !default;
+$inputListItemFocusBg: rgba(0, 0, 0, 0.09) !default;
+$inputListItemTextFocusColor: var(--text-color) !default;
 $inputListItemBorder: 0 none !default;
 $inputListItemBorderRadius: 0 !default;
 $inputListItemMargin: 0 !default;
@@ -260,7 +260,7 @@ $helpButtonActiveBorderColor: scale-color(
 ) !default;
 $helpButtonFocusShadow: 0 0 0 1px scale-color($helpButtonBg, $lightness: 30%) !default;
 
-$dangerButtonBg: #f48fb1 !default;
+$dangerButtonBg: #f65f5f !default;
 $dangerButtonTextColor: #121212 !default;
 $dangerButtonBorder: 1px solid $dangerButtonBg !default;
 $dangerButtonHoverBg: scale-color($dangerButtonBg, $lightness: -10%) !default;
@@ -286,7 +286,7 @@ $linkButtonFocusShadow: 0 0 0 0.1rem $focusOutlineColor !default;
 //checkbox
 $checkboxWidth: 20px !default;
 $checkboxHeight: 20px !default;
-$checkboxBorder: 2px solid $shade600 !default;
+$checkboxBorder: 2px solid $shade100 !default;
 $checkboxIconFontSize: 14px !default;
 $checkboxActiveBorderColor: $primaryColor !default;
 $checkboxActiveBg: $primaryColor !default;
@@ -346,7 +346,7 @@ $ratingStarIconOnColor: $primaryColor !default;
 $ratingStarIconHoverColor: $primaryColor !default;
 
 //slider
-$sliderBg: $shade600 !default;
+$sliderBg: $shade100 !default;
 $sliderBorder: 0 none !default;
 $sliderHorizontalHeight: 0.286rem !default;
 $sliderVerticalWidth: 0.286rem !default;
