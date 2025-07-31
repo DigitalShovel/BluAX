@@ -14,6 +14,7 @@ interface ThemeOption {
   selector: 'app-theme-config',
   template: `
     <div class="card">
+    <!--
       <div class="grid">
         <div class="col-12">
           <h5>Color Scheme</h5>
@@ -30,8 +31,10 @@ interface ThemeOption {
             </div>
           </div>
         </div>
+        -->
 
-        <div class="col-12 mt-4">
+        <!--<div class="col-12 mt-4">-->
+        <div class="col-12">
           <h5>Theme Colors</h5>
           <div class="grid gap-2">
             <div *ngFor="let theme of themes" class="col-2 theme-color">
@@ -44,7 +47,7 @@ interface ThemeOption {
               <div class="text-sm mt-1">{{theme.name}}</div>
             </div>
           </div>
-        </div>
+        <!--</div>-->
       </div>
     </div>
   `,
@@ -59,7 +62,7 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#F7931A',
       accentColors: {
         '--primary-color': '#F7931A',
-        '--primary-color-text': '#ffffff',
+        '--primary-color-text': '#102A43',
         '--highlight-bg': '#F7931A',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem rgba(247,147,26,0.2)',
@@ -78,6 +81,10 @@ export class ThemeConfigComponent implements OnInit {
         '--button-bg': '#F7931A',
         '--button-hover-bg': '#e58617',
         '--button-focus-shadow': '0 0 0 2px #ffffff, 0 0 0 4px #F7931A',
+        // Button Inverted
+        '--button-inverted-bg': '#DBEBFF',
+        '--button-inverted-hover-bg': '#EBF4FF',
+        '--button-inverted-text-color': '#334E68',
         // Toggle button
         '--togglebutton-bg': '#F7931A',
         '--togglebutton-border': '1px solid #F7931A',
@@ -91,7 +98,7 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#F80421',
       accentColors: {
         '--primary-color': '#F80421',
-        '--primary-color-text': '#ffffff',
+        '--primary-color-text': '#102A43',
         '--highlight-bg': '#F80421',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem rgba(255,64,50,0.2)',
@@ -110,6 +117,10 @@ export class ThemeConfigComponent implements OnInit {
         '--button-bg': '#F80421',
         '--button-hover-bg': '#e63c2e',
         '--button-focus-shadow': '0 0 0 2px #ffffff, 0 0 0 4px #F80421',
+        // Button Inverted
+        '--button-inverted-bg': '#DBEBFF',
+        '--button-inverted-hover-bg': '#EBF4FF',
+        '--button-inverted-text-color': '#334E68',
         // Toggle button
         '--togglebutton-bg': '#F80421',
         '--togglebutton-border': '1px solid #F80421',
@@ -123,7 +134,7 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#1e75df',
       accentColors: {
         '--primary-color': '#1e75df',
-        '--primary-color-text': '#ffffff',
+        '--primary-color-text': '#102A43',
         '--highlight-bg': '#1e75df',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem #B8D8FF',
@@ -145,6 +156,7 @@ export class ThemeConfigComponent implements OnInit {
         // Button Inverted
         '--button-inverted-bg': '#DBEBFF',
         '--button-inverted-hover-bg': '#EBF4FF',
+        '--button-inverted-text-color': '#334E68',
         // Toggle button
         '--togglebutton-bg': '#1e75df',
         '--togglebutton-border': '1px solid #1e75df',
@@ -158,7 +170,7 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#4caf50',
       accentColors: {
         '--primary-color': '#4caf50',
-        '--primary-color-text': '#ffffff',
+        '--primary-color-text': '#102A43',
         '--highlight-bg': '#4caf50',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem rgba(76,175,80,0.2)',
@@ -177,6 +189,10 @@ export class ThemeConfigComponent implements OnInit {
         '--button-bg': '#4caf50',
         '--button-hover-bg': '#43a047',
         '--button-focus-shadow': '0 0 0 2px #ffffff, 0 0 0 4px #4caf50',
+        // Button Inverted
+        '--button-inverted-bg': '#DBEBFF',
+        '--button-inverted-hover-bg': '#EBF4FF',
+        '--button-inverted-text-color': '#334E68',
         // Toggle button
         '--togglebutton-bg': '#4caf50',
         '--togglebutton-border': '1px solid #4caf50',
@@ -190,7 +206,7 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#9c27b0',
       accentColors: {
         '--primary-color': '#9c27b0',
-        '--primary-color-text': '#ffffff',
+        '--primary-color-text': '#102A43',
         '--highlight-bg': '#9c27b0',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem rgba(156,39,176,0.2)',
@@ -209,6 +225,10 @@ export class ThemeConfigComponent implements OnInit {
         '--button-bg': '#9c27b0',
         '--button-hover-bg': '#8e24aa',
         '--button-focus-shadow': '0 0 0 2px #ffffff, 0 0 0 4px #9c27b0',
+        // Button Inverted
+        '--button-inverted-bg': '#DBEBFF',
+        '--button-inverted-hover-bg': '#EBF4FF',
+        '--button-inverted-text-color': '#334E68',
         // Toggle button
         '--togglebutton-bg': '#9c27b0',
         '--togglebutton-border': '1px solid #9c27b0',
