@@ -49,7 +49,7 @@ static esp_err_t theme_get_handler(httpd_req_t *req)
         "\"--button-hover-bg\":\"#3185EC\","
         "\"--button-focus-shadow\":\"0 0 0 2px #ffffff, 0 0 0 4px #1e75df\","
         "\"--button-inverted-bg\":\"#DBEBFF\","
-        "\"--button-inverted-hover-bg\":\"#EBF4F\","
+        "\"--button-inverted-hover-bg\":\"#EBF4FF\","
         "\"--button-inverted-text-color\":\"#334E68\","
         "\"--togglebutton-bg\":\"#1e75df\","
         "\"--togglebutton-border\":\"1px solid #1e75df\","
