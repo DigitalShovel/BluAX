@@ -4,6 +4,7 @@
     flex: 1 1 0;
     height: 100vh;
     overflow: hidden;
+    transition: margin-left $transitionDuration;
 }
 
 .layout-main {
