@@ -58,7 +58,6 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#F7931A',
       accentColors: {
         '--primary-color': '#F7931A',
-        '--primary-color-text': '#102A43',
         '--highlight-bg': '#F7931A',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem rgba(247,147,26,0.2)',
@@ -94,7 +93,6 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#F80421',
       accentColors: {
         '--primary-color': '#F80421',
-        '--primary-color-text': '#102A43',
         '--highlight-bg': '#F80421',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem rgba(255,64,50,0.2)',
@@ -130,7 +128,6 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#1e75df',
       accentColors: {
         '--primary-color': '#1e75df',
-        '--primary-color-text': '#102A43',
         '--highlight-bg': '#1e75df',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem #B8D8FF',
@@ -166,7 +163,6 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#4caf50',
       accentColors: {
         '--primary-color': '#4caf50',
-        '--primary-color-text': '#102A43',
         '--highlight-bg': '#4caf50',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem rgba(76,175,80,0.2)',
@@ -202,7 +198,6 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#9c27b0',
       accentColors: {
         '--primary-color': '#9c27b0',
-        '--primary-color-text': '#102A43',
         '--highlight-bg': '#9c27b0',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem rgba(156,39,176,0.2)',
