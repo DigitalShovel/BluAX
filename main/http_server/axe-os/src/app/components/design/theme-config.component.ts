@@ -41,7 +41,8 @@ interface ThemeOption {
                       (click)="changeTheme(theme)">
                 <i *ngIf="theme.primaryColor === currentColor" class="pi pi-check selected-icon"></i>
               </button>
-            <div class="text-sm mt-1">{{theme.name}}</div>
+              <div class="text-sm mt-1">{{theme.name}}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -51,7 +52,7 @@ interface ThemeOption {
 })
 export class ThemeConfigComponent implements OnInit {
   selectedScheme: string;
-  currentColor: string = '#1e75df';
+  currentColor: string;
   themes: ThemeOption[] = [
     {
       name: 'Orange',
@@ -235,6 +236,7 @@ export class ThemeConfigComponent implements OnInit {
     private themeService: ThemeService
   ) {
     this.selectedScheme = this.layoutService.config().colorScheme;
+    this.currentColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim() || '#1e75df';
   }
 
   ngOnInit() {
