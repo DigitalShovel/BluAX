@@ -14,7 +14,6 @@ interface ThemeOption {
   selector: 'app-theme-config',
   template: `
     <div class="card">
-    <!--
       <div class="grid">
         <div class="col-12">
           <h5>Color Scheme</h5>
@@ -31,10 +30,8 @@ interface ThemeOption {
             </div>
           </div>
         </div>
-        -->
 
-        <!--<div class="col-12 mt-4">-->
-        <div class="col-12">
+        <div class="col-12 mt-4">
           <h5>Theme Colors</h5>
           <div class="grid gap-2">
             <div *ngFor="let theme of themes" class="col-2 theme-color">
@@ -47,7 +44,7 @@ interface ThemeOption {
               <div class="text-sm mt-1">{{theme.name}}</div>
             </div>
           </div>
-        <!--</div>-->
+        </div>
       </div>
     </div>
   `,
@@ -55,14 +52,13 @@ interface ThemeOption {
 })
 export class ThemeConfigComponent implements OnInit {
   selectedScheme: string;
-  currentColor: string = '#1e75df';
+  currentColor: string;
   themes: ThemeOption[] = [
     {
       name: 'Orange',
       primaryColor: '#F7931A',
       accentColors: {
         '--primary-color': '#F7931A',
-        '--primary-color-text': '#102A43',
         '--highlight-bg': '#F7931A',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem rgba(247,147,26,0.2)',
@@ -98,7 +94,6 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#F80421',
       accentColors: {
         '--primary-color': '#F80421',
-        '--primary-color-text': '#102A43',
         '--highlight-bg': '#F80421',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem rgba(255,64,50,0.2)',
@@ -134,7 +129,6 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#1e75df',
       accentColors: {
         '--primary-color': '#1e75df',
-        '--primary-color-text': '#102A43',
         '--highlight-bg': '#1e75df',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem #B8D8FF',
@@ -170,7 +164,6 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#4caf50',
       accentColors: {
         '--primary-color': '#4caf50',
-        '--primary-color-text': '#102A43',
         '--highlight-bg': '#4caf50',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem rgba(76,175,80,0.2)',
@@ -206,7 +199,6 @@ export class ThemeConfigComponent implements OnInit {
       primaryColor: '#9c27b0',
       accentColors: {
         '--primary-color': '#9c27b0',
-        '--primary-color-text': '#102A43',
         '--highlight-bg': '#9c27b0',
         '--highlight-text-color': '#ffffff',
         '--focus-ring': '0 0 0 0.2rem rgba(156,39,176,0.2)',
@@ -244,6 +236,7 @@ export class ThemeConfigComponent implements OnInit {
     private themeService: ThemeService
   ) {
     this.selectedScheme = this.layoutService.config().colorScheme;
+    this.currentColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim() || '#1e75df';
   }
 
   ngOnInit() {
