@@ -14,7 +14,6 @@ interface ThemeOption {
   selector: 'app-theme-config',
   template: `
     <div class="card">
-    <!--
       <div class="grid">
         <div class="col-12">
           <h5>Color Scheme</h5>
@@ -31,10 +30,8 @@ interface ThemeOption {
             </div>
           </div>
         </div>
-        -->
 
-        <!--<div class="col-12 mt-4">-->
-        <div class="col-12">
+        <div class="col-12 mt-4">
           <h5>Theme Colors</h5>
           <div class="grid gap-2">
             <div *ngFor="let theme of themes" class="col-2 theme-color">
@@ -44,10 +41,9 @@ interface ThemeOption {
                       (click)="changeTheme(theme)">
                 <i *ngIf="theme.primaryColor === currentColor" class="pi pi-check selected-icon"></i>
               </button>
-              <div class="text-sm mt-1">{{theme.name}}</div>
-            </div>
+            <div class="text-sm mt-1">{{theme.name}}</div>
           </div>
-        <!--</div>-->
+        </div>
       </div>
     </div>
   `,
