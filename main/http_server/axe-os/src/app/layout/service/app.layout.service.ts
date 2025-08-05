@@ -41,6 +41,9 @@ export class LayoutService {
     '--surface-hover': 'rgba(255,255,255,0.03)',
     '--text-color': 'rgba(255, 255, 255, 0.87)',
     '--text-color-secondary': 'rgba(255, 255, 255, 0.6)',
+    '--text-color-sidebar': '#EBF4FF', // Sidebar text color
+    '--text-color-sidebar-active': '#FFFFFF', // Sidebar active text color
+    '--text-bg-sidebar-active': 'var(--blue-700)', // Sidebar active bg color
     '--primary-color-text': '#ffffff',
     '--maskbg': 'rgba(0,0,0,0.4)',
     '--ansi-green': "#00ff00",
