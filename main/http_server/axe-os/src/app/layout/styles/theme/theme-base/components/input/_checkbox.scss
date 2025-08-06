@@ -4,7 +4,7 @@
 
     .p-checkbox-box {
         border: $checkboxBorder;
-        background: $inputBg;
+        background: var(--surface-a);
         width: $checkboxWidth;
         height: $checkboxHeight;
         color: $textColor;
