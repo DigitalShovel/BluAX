@@ -30,7 +30,7 @@ interface ThemeOption {
             </div>
           </div>
         </div>
-
+        <!--
         <div class="col-12 mt-4">
           <h5>Theme Colors</h5>
           <div class="grid gap-2">
@@ -44,7 +44,7 @@ interface ThemeOption {
               <div class="text-sm mt-1">{{theme.name}}</div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   `,
