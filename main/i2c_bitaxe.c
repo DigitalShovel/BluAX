@@ -58,7 +58,7 @@ esp_err_t i2c_bitaxe_init(void)
         .scl_io_num = GPIO_I2C_SCL,
         .sda_io_num = GPIO_I2C_SDA,
         .glitch_ignore_cnt = 7,
-        .flags.enable_internal_pullup = true,
+        .flags.enable_internal_pullup = false,
     };
 
     return i2c_new_master_bus(&i2c_bus_config, &i2c_bus_handle);
