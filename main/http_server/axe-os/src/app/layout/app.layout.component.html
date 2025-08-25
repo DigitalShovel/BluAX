@@ -16,6 +16,11 @@
                     <i class="ci ci-sidebar-expand" alt="Sidebar Expand Icon"></i>
                     <span class="p-button-label">Expand Sidebar</span>
                 </button>
+                <button *ngIf="!isAPMode" #menubutton class="p-button p-button-inverted p-button-full-width p-button-icon"
+                    (click)="layoutService.onMenuToggle()">
+                    <i class="ci ci-sidebar-collapse" alt="Sidebar Collapse Icon"></i>
+                    <span class="p-button-label">Collapse Sidebar</span>
+                </button>
             </div>
         </div>
         <div class="layout-main">

@@ -36,4 +36,56 @@ a {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+
+    @media (max-width: 991px) {
+        &.layout-static {
+            .layout-sidebar {
+                transform: translateX(-100%);
+                z-index: 100;
+            }
+
+            &.layout-mobile-active {
+                .layout-sidebar {
+                    transform: translateX(0%);
+                }
+            }
+
+            .p-button-mobile-only {
+                display: flex;
+            }
+
+            &.layout-mobile-active {
+                .p-button-mobile-only {
+                    display: none;
+                }
+            }
+
+            .layout-content {
+                margin-left: -200px;
+            }
+        }
+    }
+
+  // For desktop (min-width: 992px)
+  @media (min-width: 992px) {
+        &.layout-static.layout-static-inactive {
+            .layout-sidebar {
+                transform: translateX(-100%);
+                left: 0;
+            }
+
+            .layout-content {
+                margin-left: -200px;
+                transition: margin-left $transitionDuration;
+            }
+
+            .p-button-inverted {
+                display: none;
+            }
+
+            .p-button-mobile-only {
+                display: flex;
+            }
+        }
+    }
 }
