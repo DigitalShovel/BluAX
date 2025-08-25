@@ -79,6 +79,10 @@ a {
                 transition: margin-left $transitionDuration;
             }
 
+            .p-button-inverted {
+                display: none;
+            }
+
             .p-button-mobile-only {
                 display: flex;
             }
