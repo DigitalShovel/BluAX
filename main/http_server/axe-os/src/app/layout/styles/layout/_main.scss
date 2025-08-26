@@ -43,26 +43,33 @@ a {
                 transform: translateX(-100%);
                 z-index: 100;
             }
-
-            &.layout-mobile-active {
-                .layout-sidebar {
-                    transform: translateX(0%);
-                }
+            
+            .p-button-inverted {
+                display: none;
             }
 
             .p-button-mobile-only {
                 display: flex;
             }
 
+            .layout-content {
+                margin-left: -200px;
+            }
+
             &.layout-mobile-active {
+                .layout-sidebar {
+                    transform: translateX(0%);
+                }
+
+                .p-button-inverted {
+                    display: flex;
+                }
+
                 .p-button-mobile-only {
                     display: none;
                 }
             }
 
-            .layout-content {
-                margin-left: -200px;
-            }
         }
     }
 
