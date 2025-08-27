@@ -146,7 +146,7 @@ static lv_obj_t * create_scr_configure(SystemModule * module) {
     lv_obj_set_width(label1, LV_HOR_RES);
     lv_obj_set_style_anim_duration(label1, 15000, LV_PART_MAIN);
     lv_label_set_long_mode(label1, LV_LABEL_LONG_SCROLL_CIRCULAR);
-    lv_label_set_text(label1, "Welcome to your new BluAx! Connect to the configuration Wi-Fi and connect the BluAx to your network.");
+    lv_label_set_text(label1, "Welcome to your new BluAX! Connect to the configuration Wi-Fi and connect the BluAX to your network.");
 
     // add a bit of padding, it looks nicer this way
     lv_obj_set_style_pad_bottom(label1, 4, LV_PART_MAIN);
@@ -330,7 +330,7 @@ static void screen_update_cb(lv_timer_t * timer)
 
             if (self_test->result) {
                 lv_label_set_text(self_test_result_label, "TESTS PASS!");
-                lv_label_set_text(self_test_finished_label, "Press RESET button to start BluAx.");
+                lv_label_set_text(self_test_finished_label, "Press RESET button to start BluAX.");
             } else {
                 lv_label_set_text(self_test_result_label, "TESTS FAIL!");
                 lv_label_set_text(self_test_finished_label, "Hold BOOT button for 2 seconds to cancel self test, or press RESET to run again.");

@@ -255,7 +255,7 @@ export class EditComponent implements OnInit, OnDestroy {
       .pipe(this.loadingService.lockUIUntilComplete())
       .subscribe({
         next: () => {
-          const successMessage = this.uri ? `BluAx at ${this.uri} restarted` : 'BluAx restarted';
+          const successMessage = this.uri ? `BluAX at ${this.uri} restarted` : 'BluAX restarted';
           this.toastr.success(successMessage, 'Success');
         },
         error: (err: HttpErrorResponse) => {

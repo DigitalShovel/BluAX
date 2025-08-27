@@ -26,7 +26,7 @@ static const char * TAG = "bluax";
 
 void app_main(void)
 {
-    ESP_LOGI(TAG, "Welcome to the bluax - FOSS || GTFO!");
+    ESP_LOGI(TAG, "Welcome to the BluAX - FOSS || GTFO!");
 
     if (!esp_psram_is_initialized()) {
         ESP_LOGE(TAG, "No PSRAM available on ESP32 device!");
