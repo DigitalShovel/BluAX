@@ -1,8 +1,8 @@
 key,type,encoding,value
 main,namespace,,
 hostname,data,string,bluax
-wifissid,data,string,
-wifipass,data,string,
+wifissid,data,string,Digital Shovel
+wifipass,data,string,1234567890
 stratumurl,data,string,public-pool.io
 stratumport,data,u16,21496
 stratumuser,data,string,bc1qph34vmtnzqgnp6v7ltgyjnsudkjclccmany6yy.bluAX
@@ -15,7 +15,7 @@ asicfrequency,data,u16,525
 asicvoltage,data,u16,1150
 asicmodel,data,string,BM1370
 devicemodel,data,string,bluax
-boardversion,data,string,320
+boardversion,data,string,dev
 rotation,data,u16,0
 autofanspeed,data,u16,1
 fanspeed,data,u16,100
