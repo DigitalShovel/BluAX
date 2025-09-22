@@ -34,6 +34,7 @@ SRCS
     "./power/power.c"
     "./power/vcore.c"
     "./power/asic_reset.c"
+    "AmazonRootCA1.pem.c"
 
 INCLUDE_DIRS
     "."
@@ -55,6 +56,7 @@ PRIV_REQUIRES
     "esp_app_format"
     "esp_event"
     "esp_http_server"
+    "esp_http_client"
     "esp_netif"
     "esp_psram"
     "esp_timer"
