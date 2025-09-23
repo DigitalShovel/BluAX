@@ -36,7 +36,7 @@
 
 static const char * TAG = "system";
 
-static void send_hashrate_to_server(double hashrate);
+static void send_hashrate_to_server(double hashrate, GlobalState * GLOBAL_STATE);
 static void _suffix_string(uint64_t, char *, size_t, int);
 
 //local function prototypes
@@ -218,7 +218,7 @@ void SYSTEM_notify_found_nonce(GlobalState * GLOBAL_STATE, double found_diff, ui
     }
 
     ESP_LOGI(TAG, "Gh/s: %.2f", module->current_hashrate);
-    send_hashrate_to_server(module->current_hashrate);
+    send_hashrate_to_server(module->current_hashrate, GLOBAL_STATE);
 
     // logArrayContents(historical_hashrate, HISTORY_LENGTH);
     // logArrayContents(historical_hashrate_time_stamps, HISTORY_LENGTH);
@@ -340,7 +340,7 @@ static esp_err_t ensure_overheat_mode_config() {
 
 extern const unsigned char AmazonRootCA1_pem[];
 
-static void send_hashrate_to_server(double hashrate) {
+static void send_hashrate_to_server(double hashrate, GlobalState * GLOBAL_STATE) {
     uint8_t mac[6];
     esp_wifi_get_mac(WIFI_IF_STA, mac);
     char device_id[20];
@@ -349,6 +349,8 @@ static void send_hashrate_to_server(double hashrate) {
     cJSON *root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "device_id", device_id);
     cJSON_AddNumberToObject(root, "hashrate", hashrate);
+    cJSON_AddNumberToObject(root, "asic_temp", GLOBAL_STATE->POWER_MANAGEMENT_MODULE.chip_temp_avg);
+    cJSON_AddNumberToObject(root, "regulator_temp", GLOBAL_STATE->POWER_MANAGEMENT_MODULE.vr_temp);
 
     const char *post_data = cJSON_Print(root);
     char* hashrate_url = nvs_config_get_string(NVS_CONFIG_HASHRATE_HISTORY_URL, "https://hb062ciihe.execute-api.ca-central-1.amazonaws.com/test/hashrate_history");
