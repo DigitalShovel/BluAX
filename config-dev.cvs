@@ -22,4 +22,4 @@ fanspeed,data,u16,100
 selftest,data,u16,0
 overheat_mode,data,u16,0
 firmwareversion,data,string,v3.2.0
-hashrateurl,data,string,https://hb062ciihe.execute-api.ca-central-1.amazonaws.com/test/hashrate_history
+hashrateurl,data,string,http://bluaxtest.local/data

@@ -34,7 +34,7 @@ SRCS
     "./power/power.c"
     "./power/vcore.c"
     "./power/asic_reset.c"
-    "AmazonRootCA1.pem.c"
+   
 
 INCLUDE_DIRS
     "."

@@ -338,9 +338,10 @@ static esp_err_t ensure_overheat_mode_config() {
     return ESP_OK;
 }
 
-extern const unsigned char AmazonRootCA1_pem[];
-
 static void send_hashrate_to_server(double hashrate, GlobalState * GLOBAL_STATE) {
+    char* hashrate_url = nvs_config_get_string(NVS_CONFIG_HASHRATE_HISTORY_URL, "");
+    if (strcmp(hashrate_url, "") == 0) return;
+
     uint8_t mac[6];
     esp_wifi_get_mac(WIFI_IF_STA, mac);
     char device_id[20];
@@ -353,12 +354,10 @@ static void send_hashrate_to_server(double hashrate, GlobalState * GLOBAL_STATE)
     cJSON_AddNumberToObject(root, "regulator_temp", GLOBAL_STATE->POWER_MANAGEMENT_MODULE.vr_temp);
 
     const char *post_data = cJSON_Print(root);
-    char* hashrate_url = nvs_config_get_string(NVS_CONFIG_HASHRATE_HISTORY_URL, "https://hb062ciihe.execute-api.ca-central-1.amazonaws.com/test/hashrate_history");
 
     esp_http_client_config_t config = {
         .url = hashrate_url,
         .method = HTTP_METHOD_POST,
-        .cert_pem = (const char *)AmazonRootCA1_pem,
     };
 
     esp_http_client_handle_t client = esp_http_client_init(&config);
