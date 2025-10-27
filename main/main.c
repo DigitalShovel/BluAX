@@ -7,6 +7,8 @@
 #include "asic_task.h"
 #include "create_jobs_task.h"
 #include "statistics_task.h"
+#include "cpu_monitor_task.h"
+
 #include "system.h"
 #include "http_server.h"
 #include "serial.h"
@@ -19,6 +21,7 @@
 #include "device_config.h"
 #include "connect.h"
 #include "asic_reset.h"
+
 
 static GlobalState GLOBAL_STATE;
 
@@ -102,4 +105,5 @@ void app_main(void)
     xTaskCreate(ASIC_task, "asic", 8192, (void *) &GLOBAL_STATE, 10, NULL);
     xTaskCreate(ASIC_result_task, "asic result", 8192, (void *) &GLOBAL_STATE, 15, NULL);
     xTaskCreate(statistics_task, "statistics", 8192, (void *) &GLOBAL_STATE, 3, NULL);
+    xTaskCreate(cpu_monitor_task, "cpu monitor", 4096, NULL, 2, NULL);
 }
