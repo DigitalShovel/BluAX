@@ -65,6 +65,41 @@ static esp_err_t read_display_config(GlobalState * GLOBAL_STATE)
     return ESP_FAIL;
 }
 
+esp_err_t ssd1306_recover_init(esp_lcd_panel_io_handle_t io);
+static inline esp_err_t ssd1306_cmd(const esp_lcd_panel_io_handle_t io, uint8_t cmd) {
+    esp_err_t err = esp_lcd_panel_io_tx_param(io, cmd, NULL, 0);
+    return err;
+}
+static inline esp_err_t ssd1306_cmd1(const esp_lcd_panel_io_handle_t io, uint8_t cmd, uint8_t p0) {
+    esp_err_t err = esp_lcd_panel_io_tx_param(io, cmd, &p0, 1);
+    return err;
+}
+esp_err_t ssd1306_recover_init(esp_lcd_panel_io_handle_t io)
+{
+    const char *TAG = "ssd1306_recover";
+    vTaskDelay(pdMS_TO_TICKS(500));
+    ESP_RETURN_ON_ERROR(ssd1306_cmd (io, 0xAE),            TAG, "display off");
+    ESP_RETURN_ON_ERROR(ssd1306_cmd1(io, 0x8D, 0x10),      TAG, "pump disable");
+    ESP_RETURN_ON_ERROR(ssd1306_cmd1(io, 0xD5, 0x80),      TAG, "clock");
+    //ESP_RETURN_ON_ERROR(ssd1306_cmd1(io, 0xA8, mux),       TAG, "mux");
+    ESP_RETURN_ON_ERROR(ssd1306_cmd1(io, 0xD3, 0x00),      TAG, "offset");
+    ESP_RETURN_ON_ERROR(ssd1306_cmd (io, 0x40),            TAG, "start line");
+    ESP_RETURN_ON_ERROR(ssd1306_cmd1(io, 0x20, 0x00),      TAG, "addr horiz");
+    ESP_RETURN_ON_ERROR(ssd1306_cmd (io, 0xA1),            TAG, "seg remap");
+    ESP_RETURN_ON_ERROR(ssd1306_cmd (io, 0xC8),            TAG, "com scan dec");
+    // ESP_RETURN_ON_ERROR(ssd1306_cmd1(io, 0xDA, comp),      TAG, "com pins");
+    ESP_RETURN_ON_ERROR(ssd1306_cmd1(io, 0x81, 0x7F),      TAG, "contrast");
+    ESP_RETURN_ON_ERROR(ssd1306_cmd1(io, 0xD9, 0xF1),      TAG, "pre-charge");
+    ESP_RETURN_ON_ERROR(ssd1306_cmd1(io, 0xDB, 0x40),      TAG, "vcomh");
+    ESP_RETURN_ON_ERROR(ssd1306_cmd (io, 0xA4),            TAG, "resume RAM");
+    ESP_RETURN_ON_ERROR(ssd1306_cmd (io, 0xA6),            TAG, "normal");
+    vTaskDelay(pdMS_TO_TICKS(25));
+    ESP_RETURN_ON_ERROR(ssd1306_cmd1(io, 0x8D, 0x14),      TAG, "pump enable");
+    vTaskDelay(pdMS_TO_TICKS(25));
+    ESP_RETURN_ON_ERROR(ssd1306_cmd (io, 0xAF),            TAG, "display on");
+    return ESP_OK;
+}
+
 esp_err_t display_init(void * pvParameters)
 {
     GlobalState * GLOBAL_STATE = (GlobalState *) pvParameters;
@@ -130,8 +165,13 @@ esp_err_t display_init(void * pvParameters)
             return ESP_FAIL;
     }
 
+
     ESP_RETURN_ON_ERROR(esp_lcd_panel_reset(panel_handle), TAG, "Panel reset failed");
     esp_err_t esp_lcd_panel_init_err = esp_lcd_panel_init(panel_handle);
+    
+    ESP_RETURN_ON_ERROR(ssd1306_recover_init(io_handle), TAG, "SSD1306 init failed");
+    ESP_LOGI(TAG, "SSD1306 Real Reset Performed?");
+
     if (esp_lcd_panel_init_err != ESP_OK) {
         ESP_LOGE(TAG, "Panel init failed, no display connected?");
     }  else {
