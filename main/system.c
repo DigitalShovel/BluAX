@@ -29,9 +29,14 @@
 #include "screen.h"
 #include "vcore.h"
 #include "thermal.h"
+#include "esp_http_client.h"
+#include "cJSON.h"
+#include "esp_mac.h"
+#include "esp_wifi.h"
 
 static const char * TAG = "system";
 
+static void send_hashrate_to_server(double hashrate, GlobalState * GLOBAL_STATE);
 static void _suffix_string(uint64_t, char *, size_t, int);
 
 //local function prototypes
@@ -212,6 +217,8 @@ void SYSTEM_notify_found_nonce(GlobalState * GLOBAL_STATE, double found_diff, ui
         module->current_hashrate = ((module->current_hashrate * 9) + rolling_rate) / 10;
     }
 
+    ESP_LOGI(TAG, "Gh/s: %.2f", module->current_hashrate);
+    send_hashrate_to_server(module->current_hashrate, GLOBAL_STATE);
 
     // logArrayContents(historical_hashrate, HISTORY_LENGTH);
     // logArrayContents(historical_hashrate_time_stamps, HISTORY_LENGTH);
@@ -329,4 +336,57 @@ static esp_err_t ensure_overheat_mode_config() {
     }
 
     return ESP_OK;
+}
+
+static void send_hashrate_to_server(double hashrate, GlobalState * GLOBAL_STATE) {
+    static struct timeval last_sent = {0, 0};
+    struct timeval now;
+    gettimeofday(&now, NULL);
+
+    long elapsed_ms = (now.tv_sec - last_sent.tv_sec) * 1000
+                    + (now.tv_usec - last_sent.tv_usec) / 1000;
+
+    if (elapsed_ms < 10000) {
+        return;
+    }
+
+    char* hashrate_url = nvs_config_get_string(NVS_CONFIG_HASHRATE_HISTORY_URL, "");
+    if (strcmp(hashrate_url, "") == 0) return;
+
+    uint8_t mac[6];
+    esp_wifi_get_mac(WIFI_IF_STA, mac);
+    char device_id[20];
+    snprintf(device_id, sizeof(device_id), "BluAX-%02X%02X", mac[4], mac[5]);
+
+    cJSON *root = cJSON_CreateObject();
+    cJSON_AddStringToObject(root, "device_id", device_id);
+    cJSON_AddNumberToObject(root, "hashrate", hashrate);
+    cJSON_AddNumberToObject(root, "asic_temp", GLOBAL_STATE->POWER_MANAGEMENT_MODULE.chip_temp_avg);
+    cJSON_AddNumberToObject(root, "regulator_temp", GLOBAL_STATE->POWER_MANAGEMENT_MODULE.vr_temp);
+
+    const char *post_data = cJSON_Print(root);
+
+    esp_http_client_config_t config = {
+        .url = hashrate_url,
+        .method = HTTP_METHOD_POST,
+    };
+
+    esp_http_client_handle_t client = esp_http_client_init(&config);
+    last_sent = now;
+    esp_http_client_set_header(client, "Content-Type", "application/json");
+    esp_http_client_set_post_field(client, post_data, strlen(post_data));
+
+    esp_err_t err = esp_http_client_perform(client);
+    if (err == ESP_OK) {
+        ESP_LOGI(TAG, "HTTP POST Status = %d, content_length = %"PRId64,
+                esp_http_client_get_status_code(client),
+                esp_http_client_get_content_length(client));
+    } else {
+        ESP_LOGE(TAG, "HTTP POST request failed: %s", esp_err_to_name(err));
+    }
+
+    esp_http_client_cleanup(client);
+    cJSON_Delete(root);
+    free((void *)post_data);
+    free(hashrate_url);
 }
