@@ -18,13 +18,15 @@ void split_and_print_percent_array(const char *stats_str) {
 
     // Tokenize the string by '%' character
     char *token = strtok(str_copy, "%");
+    char *prev_token = NULL;
 
     // Iterate over each token and print it with a trailing "%" unless it's just "%".
     while (token != NULL) {
         // Check if the token is not empty (in case of a trailing '%' at the end)
-        if (strlen(token) > 0) {
-            ESP_LOGI(TAG, "%s%%", token);  // Log each token with a "%" after it
+        if (prev_token != NULL) {
+            ESP_LOGI(TAG, "%s%%", prev_token);  // print previous token
         }
+        prev_token = token;
         token = strtok(NULL, "%");  // Get the next token
     }
 
