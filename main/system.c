@@ -33,6 +33,7 @@
 #include "cJSON.h"
 #include "esp_mac.h"
 #include "esp_wifi.h"
+#include "TPS546.h"
 
 static const char * TAG = "system";
 
@@ -363,7 +364,7 @@ static void send_hashrate_to_server(double hashrate, GlobalState * GLOBAL_STATE)
     cJSON_AddNumberToObject(root, "hashrate", hashrate);
     cJSON_AddNumberToObject(root, "asic_temp", GLOBAL_STATE->POWER_MANAGEMENT_MODULE.chip_temp_avg);
     cJSON_AddNumberToObject(root, "regulator_temp", GLOBAL_STATE->POWER_MANAGEMENT_MODULE.vr_temp);
-    cJSON_AddNumberToObject(root, "core_voltage", VCORE_get_voltage_mv(GLOBAL_STATE));
+    cJSON_AddNumberToObject(root, "core_voltage", TPS546_get_vout()*1000);
     cJSON_AddNumberToObject(root, "frequency", GLOBAL_STATE->POWER_MANAGEMENT_MODULE.frequency_value);
 
     const char *post_data = cJSON_Print(root);
