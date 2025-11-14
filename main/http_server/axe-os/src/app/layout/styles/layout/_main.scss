@@ -96,3 +96,19 @@ a {
         }
     }
 }
+
+.layout-root.ap-mode {
+    // cancel all sidebar/content shifting
+    .layout-sidebar {
+        transform: none !important;
+    }
+
+    .layout-content {
+        margin-left: 0 !important;
+    }
+
+    .p-button-inverted,
+    .p-button-mobile-only {
+        display: none !important;
+    }
+}

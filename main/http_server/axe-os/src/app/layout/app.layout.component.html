@@ -1,4 +1,4 @@
-<div class="layout-root" [ngClass]="containerClass">
+<div class="layout-root" [ngClass]="isAPMode ? 'ap-mode' : containerClass">
     <div class="layout-sidebar" *ngIf="!isAPMode">
         <app-sidebar></app-sidebar>
     </div>
