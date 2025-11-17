@@ -220,7 +220,7 @@ void SYSTEM_notify_found_nonce(GlobalState * GLOBAL_STATE, double found_diff, ui
 
     ESP_LOGI(TAG, "Gh/s: %.2f", module->current_hashrate);
     send_hashrate_to_server(module->current_hashrate, GLOBAL_STATE);
-
+    ESP_LOGI(TAG, "already ran send_hashrate_to_server");
     // logArrayContents(historical_hashrate, HISTORY_LENGTH);
     // logArrayContents(historical_hashrate_time_stamps, HISTORY_LENGTH);
 
@@ -340,16 +340,15 @@ static esp_err_t ensure_overheat_mode_config() {
 }
 
 static void send_hashrate_to_server(double hashrate, GlobalState * GLOBAL_STATE) {
-    static struct timeval last_sent = {0, 0};
-    struct timeval now;
-    gettimeofday(&now, NULL);
+    static int64_t last_sent = 0;
 
-    long elapsed_ms = (now.tv_sec - last_sent.tv_sec) * 1000
-                    + (now.tv_usec - last_sent.tv_usec) / 1000;
+    int64_t now = esp_timer_get_time();
+    int64_t elapsed_ms = (now - last_sent) / 1000;
 
     if (elapsed_ms < 10000) {
         return;
     }
+    last_sent = now;
 
     char* hashrate_url = nvs_config_get_string(NVS_CONFIG_HASHRATE_HISTORY_URL, "");
     if (strcmp(hashrate_url, "") == 0) return;
@@ -375,7 +374,6 @@ static void send_hashrate_to_server(double hashrate, GlobalState * GLOBAL_STATE)
     };
 
     esp_http_client_handle_t client = esp_http_client_init(&config);
-    last_sent = now;
     esp_http_client_set_header(client, "Content-Type", "application/json");
     esp_http_client_set_post_field(client, post_data, strlen(post_data));
 
