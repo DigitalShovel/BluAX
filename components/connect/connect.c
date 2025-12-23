@@ -17,7 +17,7 @@
 #include "nvs_config.h"
 
 // Maximum number of access points to scan
-#define MAX_AP_COUNT 20
+#define MAX_AP_COUNT 100
 
 #if CONFIG_ESP_WPA3_SAE_PWE_HUNT_AND_PECK
 #define ESP_WIFI_SAE_MODE WPA3_SAE_PWE_HUNT_AND_PECK
