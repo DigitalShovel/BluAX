@@ -128,7 +128,6 @@ static const DeviceConfig default_configs[] = {
     { .board_version = "602",  .family = FAMILY_GAMMA,       .EMC2101 = true, .emc_ideality_factor = 0x24, .emc_beta_compensation = 0x00,                         .TPS546 = true,                                                           .power_consumption_target = 22, },
     { .board_version = "800",  .family = FAMILY_GAMMA_TURBO, .EMC2103 = true,                                                             .emc_temp_offset = -10, .TPS546 = true,                                                           .power_consumption_target = 12, },
     { .board_version = "320",  .family = FAMILY_BLUAX,       .EMC2101 = true, .emc_ideality_factor = 0x24, .emc_beta_compensation = 0x00,                         .TPS546 = true,                                                           .power_consumption_target = 19, },
-    { .board_version = "321",  .family = FAMILY_BLUAX,       .EMC2101 = true, .emc_ideality_factor = 0x24, .emc_beta_compensation = 0x00,                         .TPS546 = true,                                                           .power_consumption_target = 19, },
     { .board_version = "dev",  .family = FAMILY_BLUAX,       .EMC2101 = true, .emc_ideality_factor = 0x24, .emc_beta_compensation = 0x00,                         .TPS546 = true,                                                           .power_consumption_target = 19, },
 };
 

@@ -15,7 +15,7 @@ asicfrequency,data,u16,525
 asicvoltage,data,u16,1150
 asicmodel,data,string,BM1370
 devicemodel,data,string,bluax
-boardversion,data,string,321
+boardversion,data,string,320
 rotation,data,u16,0
 autofanspeed,data,u16,1
 fanspeed,data,u16,100
