@@ -8,7 +8,7 @@
 # BluAX
 BluAX is open source ESP32 firmware modified based on the [Bitaxe](https://github.com/bitaxeorg/bitaxe)
 
-You can purchase one on our [website](https://digitalshovel.com/BluAX) and find the set up instruction [here] (https://digitalshovel.com/BluAX-instructions.html).
+You can purchase one on our [website](https://digitalshovel.com/BluAX) and find the set up instruction [here](https://digitalshovel.com/BluAX-instructions.html).
 
 # Bitaxetool
 We also have a command line python tool for flashing Bitaxe and updating the config called Bitaxetool 
